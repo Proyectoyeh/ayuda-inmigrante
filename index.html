@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ayuda al Inmigrante · Acogida, acompañamiento y derechos</title>
+<meta name="description" content="Ayuda al Inmigrante: acogida, asesoría jurídica, clases de español y apoyo a personas migrantes. Hazte socio/a, dona o únete como voluntario/a.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1d2523;--muted:#56625e;--bg:#f6f3ec;--pri:#1f5f5b;--pri-d:#173f3c;--pri-2:#2c7a74;--soft:#e3efed;--acc:#f3c9a8;--acc-d:#c8553d;--line:#e3ddd1;--yel:#f6e7a6}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:120px}
+body{margin:0;font-family:Figtree,system-ui,sans-serif;color:var(--ink);background:#fff;font-size:16.5px;line-height:1.55}
+h1,h2,h3{margin:0;line-height:1.15}
+h1,h2{font-family:Fraunces,Georgia,serif;font-weight:700}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+/* barra superior */
+.topbar{background:var(--pri-d);color:#e8f1ef;font-size:14.5px}
+.topbar .wrap{display:flex;align-items:center;gap:22px;min-height:46px;flex-wrap:wrap}
+.pill{background:var(--yel);color:#2a2a14;border-radius:99px;padding:4px 14px;font-weight:600;white-space:nowrap}
+.topbar a{text-decoration:none;font-weight:500;opacity:.92}
+.topbar a:hover{opacity:1;text-decoration:underline}
+.topbar .camp{border:1.5px solid #9fc4bf;border-radius:99px;padding:5px 16px;font-weight:600}
+.topbar .right{margin-left:auto;display:flex;gap:18px;align-items:center}
+/* cabecera */
+header.main{background:var(--pri);color:#fff;position:sticky;top:0;z-index:20;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+header.main .wrap{display:flex;align-items:center;gap:18px;min-height:74px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo b{font-family:Fraunces,Georgia,serif;font-size:22px;line-height:1}
+.logo small{display:block;font-size:12px;opacity:.75;font-weight:500}
+header.main nav{margin-left:auto;display:flex;align-items:center;gap:10px}
+header.main nav a.lnk{color:#e8f1ef;text-decoration:none;font-weight:500;padding:8px 10px;border-radius:8px}
+header.main nav a.lnk:hover{background:rgba(255,255,255,.1)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:99px;padding:11px 22px;font-weight:700;text-decoration:none;border:2px solid transparent;cursor:pointer;font-size:15.5px;font-family:inherit}
+.btn.white{background:#fff;color:var(--pri-d)}
+.btn.yel{background:var(--yel);color:#2a2a14}
+.btn.pri{background:var(--pri);color:#fff}
+.btn.pri:hover{background:var(--pri-2)}
+.btn.out{border-color:var(--pri);color:var(--pri);background:transparent}
+.btn.out:hover{background:var(--soft)}
+.burger{display:none;background:none;border:0;color:#fff;font-size:26px;cursor:pointer;margin-left:auto}
+/* hero */
+.hero{background:linear-gradient(180deg,var(--pri) 0%,var(--pri) 62%,#fff 62%)}
+.hero .wrap:not(.stats-wrap){display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding-top:56px;padding-bottom:30px}
+.hero h1{color:#fff;font-size:clamp(34px,4.6vw,56px)}
+.hero p.lead{color:#d9e9e6;font-size:19px;max-width:560px;margin:18px 0 26px}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.hero-art{background:var(--bg);border-radius:28px;aspect-ratio:1/1;display:grid;place-items:center;box-shadow:0 20px 50px rgba(0,0,0,.15);overflow:hidden}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px;box-shadow:0 6px 20px rgba(0,0,0,.05)}
+.stat b{font-size:32px;font-family:Fraunces,Georgia,serif;color:var(--pri);display:block}
+.stat span{color:var(--muted);font-size:14.5px}
+section{padding:72px 0}
+section.alt{background:var(--bg)}
+.eyebrow{text-transform:uppercase;letter-spacing:.09em;font-size:13px;font-weight:700;color:var(--acc-d);margin-bottom:8px}
+.sec-head{max-width:720px;margin-bottom:34px}
+.sec-head h2{font-size:clamp(28px,3.4vw,40px);color:var(--pri-d)}
+.sec-head p{color:var(--muted);font-size:18px;margin:12px 0 0}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px}
+.card .ico{width:48px;height:48px;border-radius:14px;background:var(--soft);display:grid;place-items:center;margin-bottom:14px}
+.card h3{font-size:19px;margin-bottom:8px}
+.card p{margin:0;color:var(--muted)}
+/* campaña */
+.campaign{background:var(--pri-d);color:#fff;border-radius:26px;padding:44px;display:grid;grid-template-columns:1.3fr 1fr;gap:34px;align-items:center}
+.campaign h2{font-size:clamp(28px,3.4vw,42px)}
+.campaign p{color:#d3e4e1;font-size:17.5px}
+.campaign .date{display:inline-block;background:var(--acc);color:#4a2412;border-radius:99px;padding:5px 14px;font-weight:700;margin-bottom:14px}
+.progress{background:rgba(255,255,255,.15);border-radius:99px;height:12px;overflow:hidden;margin:10px 0 6px}
+.progress div{height:100%;background:var(--yel);border-radius:99px}
+.camp-box{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:18px;padding:24px}
+.camp-box ul{margin:10px 0 0;padding-left:20px;color:#d3e4e1}
+/* sumar */
+.aportar{display:grid;grid-template-columns:repeat(3,1fr);gap:34px 40px}
+.aportar .intro h2{font-size:clamp(26px,3vw,36px);color:var(--pri-d)}
+.aportar .intro p{color:var(--muted);font-size:17.5px}
+.apo h3{display:flex;align-items:center;gap:12px;font-size:18px;margin-bottom:12px}
+.apo p{margin:0 0 14px;color:#38413e;font-size:17px}
+.apo button{background:#fff;border:1.5px solid var(--ink);border-radius:6px;padding:9px 16px;font-family:inherit;font-size:15px;cursor:pointer}
+.apo button:hover{background:var(--ink);color:#fff}
+.apo button i{font-style:italic}
+/* formularios */
+.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px}
+.formgrid .full{grid-column:1/-1}
+.formgrid label{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:14.5px}
+.formgrid input,.formgrid select,.formgrid textarea{font:inherit;font-weight:400;padding:11px 13px;border:1.5px solid #d6cfc1;border-radius:10px;background:#fff}
+.formgrid textarea{min-height:96px;resize:vertical}
+.formgrid input:focus,.formgrid select:focus,.formgrid textarea:focus{outline:3px solid var(--soft);border-color:var(--pri)}
+.checks{display:flex;flex-wrap:wrap;gap:8px}
+.checks label{flex-direction:row;align-items:center;gap:8px;font-weight:500;background:#fff;border:1.5px solid #d6cfc1;border-radius:99px;padding:7px 14px;cursor:pointer}
+.checks input{margin:0}
+.consent{flex-direction:row!important;align-items:flex-start;gap:10px!important;font-weight:400!important;font-size:14px!important;color:var(--muted)}
+.consent input{margin-top:4px}
+.formcard{background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px;box-shadow:0 10px 30px rgba(0,0,0,.04)}
+.two{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:start}
+.two .side p{color:var(--muted);font-size:17.5px}
+.side ul{padding-left:20px;color:#38413e}
+.side li{margin:6px 0}
+.amounts{display:flex;gap:8px;flex-wrap:wrap}
+.amounts label{flex-direction:row;cursor:pointer}
+.amounts input{position:absolute;opacity:0;pointer-events:none}
+.amounts span{display:inline-block;border:1.5px solid #d6cfc1;border-radius:12px;padding:10px 18px;font-weight:700;font-size:17px;background:#fff}
+.amounts input:checked+span{background:var(--pri);color:#fff;border-color:var(--pri)}
+.amounts input:focus-visible+span{outline:3px solid var(--soft)}
+.msg{display:none;margin-top:16px;padding:14px 16px;border-radius:12px;font-weight:500}
+.msg.ok{display:block;background:#e4f2e6;color:#24612f}
+.msg.info{display:block;background:#fbeadf;color:#7a3a10}
+/* dona */
+.donate{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.dcard{border-radius:20px;padding:26px;border:1px solid var(--line);background:#fff}
+.dcard.feat{background:var(--yel);border-color:#e7d47e}
+.dcard h3{font-size:20px;margin-bottom:6px}
+.dcard .big{font-family:Fraunces,Georgia,serif;font-size:30px;font-weight:700;margin:10px 0;word-break:break-all}
+.dcard p{color:#4a4f45;margin:6px 0}
+.copy{background:none;border:1.5px solid currentColor;border-radius:99px;padding:5px 12px;font:inherit;font-size:13.5px;font-weight:600;cursor:pointer}
+.needs{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.needs span{background:var(--soft);color:var(--pri-d);border-radius:99px;padding:5px 12px;font-size:14px;font-weight:600}
+.note{font-size:14px;color:var(--muted);margin-top:18px}
+.pending{color:var(--acc-d);font-style:italic;font-weight:500}
+/* contacto */
+.contact{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+footer{background:var(--pri-d);color:#cfe0dd;padding:40px 0 30px;font-size:14.5px}
+footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px}
+footer a{color:#fff}
+footer h4{color:#fff;margin:0 0 10px}
+footer .legal{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.15);padding-top:18px;font-size:13px;opacity:.8}
+.demo-banner{background:var(--acc);color:#4a2412;text-align:center;padding:8px 14px;font-size:14px;font-weight:500;display:none}
+@media (max-width:980px){
+  .topbar .hide-m{display:none}
+  header.main nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--pri);flex-direction:column;align-items:stretch;padding:12px 22px 20px}
+  header.main nav.open{display:flex}
+  .burger{display:block}
+  .hero .wrap:not(.stats-wrap),.campaign,.two{grid-template-columns:1fr}
+  .hero-art{display:none}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .cards,.aportar,.donate,.contact{grid-template-columns:1fr}
+  .formgrid{grid-template-columns:1fr}
+  footer .wrap{grid-template-columns:1fr}
+  .campaign{padding:28px}
+}
+</style>
+</head>
+<body>
+<div class="demo-banner" id="demoBanner">Versión de demostración: cifras de ejemplo y formularios sin envío.</div>
+
+<!-- Barra superior -->
+<div class="topbar"><div class="wrap">
+  <span class="pill"><span data-cfg="telefono"></span> | BIZUM <span data-cfg="bizum"></span></span>
+  <a href="#unete" class="hide-m">Únete al equipo</a>
+  <a href="#donde" class="hide-m">Dónde estamos</a>
+  <a href="#proyectos" class="hide-m">Proyectos</a>
+  <a href="#campana" class="camp">Campaña <span data-cfg="campanaAnio"></span></a>
+  <div class="right hide-m"><a href="#colabora">Colabora</a><a href="#contacto">Contacto</a></div>
+</div></div>
+
+<!-- Cabecera -->
+<header class="main"><div class="wrap" style="position:relative">
+  <a class="logo" href="#inicio">
+    <svg width="44" height="44" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#2c7a74"/><path d="M11 22c3-5 6-7 9-7s6 2 9 7" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round"/><circle cx="20" cy="11" r="3" fill="#fff"/><path d="M9 27h22" stroke="#f3c9a8" stroke-width="2.4" stroke-linecap="round"/></svg>
+    <span><b>Ayuda al Inmigrante</b><small>Acogida · Acompañamiento · Derechos</small></span>
+  </a>
+  <button class="burger" aria-label="Abrir menú" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+  <nav id="menu" onclick="if(event.target.tagName==='A')this.classList.remove('open')">
+    <a class="lnk" href="#proyectos">Qué hacemos</a>
+    <a class="lnk" href="#colabora">Colabora</a>
+    <a class="lnk" href="#unete">Voluntariado</a>
+    <a class="btn white" href="#socio">Hazte socio/a</a>
+    <a class="btn yel" href="#dona">Dona</a>
+  </nav>
+</div></header>
+
+<!-- Hero -->
+<div class="hero" id="inicio"><div class="wrap">
+  <div>
+    <h1>Nadie debería empezar de cero en soledad</h1>
+    <p class="lead">Acompañamos a las personas migrantes que llegan a nuestra ciudad: un lugar donde ser escuchadas, ayuda para cubrir lo básico y orientación para regularizar su situación y construir su vida aquí.</p>
+    <div class="ctas"><a class="btn yel" href="#dona">Quiero donar</a><a class="btn white" href="#socio">Hazte socio/a</a><a class="btn" style="color:#fff;border-color:#9fc4bf" href="#unete">Hazte voluntario/a</a></div>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+    <svg viewBox="0 0 400 400" width="100%" height="100%">
+      <rect width="400" height="400" fill="#f6f3ec"/>
+      <circle cx="200" cy="420" r="230" fill="#e3efed"/>
+      <path d="M40 300 Q200 170 360 300" stroke="#2c7a74" stroke-width="10" fill="none" stroke-linecap="round"/>
+      <circle cx="140" cy="190" r="34" fill="#c8553d"/><rect x="104" y="230" width="72" height="110" rx="36" fill="#c8553d"/>
+      <circle cx="262" cy="200" r="30" fill="#1f5f5b"/><rect x="230" y="236" width="64" height="104" rx="32" fill="#1f5f5b"/>
+      <circle cx="205" cy="246" r="18" fill="#f3c9a8"/><rect x="186" y="268" width="38" height="70" rx="19" fill="#f3c9a8"/>
+      <path d="M176 285 L192 292 M224 292 L234 280" stroke="#173f3c" stroke-width="6" stroke-linecap="round"/>
+      <circle cx="330" cy="80" r="26" fill="#f6e7a6"/>
+      <path d="M60 90 q20 -16 40 0 q20 16 40 0" stroke="#9fc4bf" stroke-width="5" fill="none" stroke-linecap="round"/>
+    </svg>
+  </div>
+</div>
+<div class="wrap stats-wrap"><div class="stats" id="stats"></div></div>
+</div>
+
+<!-- Proyectos -->
+<section id="proyectos"><div class="wrap">
+  <div class="sec-head"><div class="eyebrow">Proyectos</div><h2>Lo que hacemos cada día</h2><p>Acompañamos a cada persona desde que llega hasta que consigue valerse por sí misma, con un plan adaptado a su situación.</p></div>
+  <div class="cards">
+    <div class="card"><div class="ico">🤝</div><h3>Acogida y primera atención</h3><p>Escuchamos a cada persona, registramos su situación y valoramos sus necesidades más urgentes: alojamiento, comida, ropa y salud.</p></div>
+    <div class="card"><div class="ico">⚖️</div><h3>Asesoría jurídica</h3><p>Orientamos sobre empadronamiento, protección internacional y las distintas vías de arraigo para regularizar su situación.</p></div>
+    <div class="card"><div class="ico">🗣️</div><h3>Clases de español</h3><p>El idioma abre todas las puertas: clases por niveles impartidas por personas voluntarias.</p></div>
+    <div class="card"><div class="ico">🧺</div><h3>Ropero y alimentos</h3><p>Repartimos las donaciones de alimentos, ropa, productos de higiene y material escolar a quien más lo necesita.</p></div>
+    <div class="card"><div class="ico">💼</div><h3>Formación y empleo</h3><p>Ayudamos a preparar el currículum, buscar formación y conectar con empresas cuando la persona ya puede trabajar.</p></div>
+    <div class="card"><div class="ico">👨‍👩‍👧</div><h3>Familias e infancia</h3><p>Acompañamos la escolarización de los menores y apoyamos a las familias en sus trámites.</p></div>
+  </div>
+</div></section>
+
+<!-- Campaña -->
+<section class="alt" id="campana"><div class="wrap">
+  <div class="campaign">
+    <div>
+      <span class="date" data-cfg="campanaFecha"></span>
+      <h2 data-cfg="campanaTitulo"></h2>
+      <p data-cfg="campanaTexto"></p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px"><a class="btn yel" href="#dona">Colabora con la campaña</a><a class="btn white" href="#colabora">Organiza una recogida</a></div>
+    </div>
+    <div class="camp-box">
+      <b>Objetivo: <span data-cfg="campanaMeta"></span></b>
+      <div class="progress"><div id="campBar" style="width:0%"></div></div>
+      <div style="font-size:14px;color:#d3e4e1">Llevamos <b style="color:#fff" data-cfg="campanaRecaudado"></b></div>
+      <p style="margin:18px 0 4px;color:#fff;font-weight:600">Con tu ayuda conseguiremos:</p>
+      <ul id="campList"></ul>
+    </div>
+  </div>
+</div></section>
+
+<!-- La sociedad tiene mucho que aportar -->
+<section id="colabora"><div class="wrap">
+  <div class="aportar">
+    <div class="intro"><h2>Toda la sociedad tiene mucho que aportar</h2><p>La acogida se construye entre todos. Elige cómo quieres sumar y nos pondremos en contacto contigo.</p></div>
+    <div class="apo"><h3><svg width="34" height="34" viewBox="0 0 24 24"><path fill="#1d2523" d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zM5 13.2v4L12 21l7-3.8v-4L12 17l-7-3.8z"/></svg>Centros educativos</h3><p>Charlas y talleres para que el alumnado conozca la realidad de las personas migrantes.</p><button onclick="colabora('educacion')">Solicita una <i>charla</i></button></div>
+    <div class="apo"><h3><svg width="34" height="34" viewBox="0 0 24 24"><circle cx="12" cy="5" r="3" fill="#1d2523"/><path fill="#1d2523" d="M7 21v-7a5 5 0 0 1 10 0v7h-3v-5h-4v5z"/></svg>Jóvenes</h3><p>Voluntariado joven: clases de español, ocio con menores y difusión en redes.</p><button onclick="document.getElementById('unete').scrollIntoView()">Únete al <i>voluntariado joven</i></button></div>
+    <div class="apo"><h3><svg width="34" height="34" viewBox="0 0 24 24"><path fill="#1d2523" d="M11 1h2v3h2v2h-2v2l6 4v10h-6v-5h-2v5H5V12l6-4V6H9V4h2z"/></svg>Parroquias y comunidades</h3><p>Recogidas de alimentos y ropa, espacios para actividades y redes de acogida.</p><button onclick="colabora('parroquia')">Organiza una <i>recogida</i></button></div>
+    <div class="apo"><h3><svg width="34" height="34" viewBox="0 0 24 24"><path fill="#1d2523" d="M9 3h6a2 2 0 0 1 2 2v1h3a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3V5a2 2 0 0 1 2-2zm0 3h6V5H9zm1 7v2h4v-2z"/></svg>Empresas y administraciones</h3><p>Convenios, patrocinio de proyectos, voluntariado corporativo y oportunidades de empleo.</p><button onclick="colabora('empresa')">Conoce cómo <i>colaborar</i></button></div>
+    <div class="apo"><h3><svg width="34" height="34" viewBox="0 0 24 24"><path fill="#1d2523" d="M3 10v4h3l5 4V6L6 10zm13.5 2A4.5 4.5 0 0 0 14 8v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>Ciudadanía</h3><p>Difunde nuestro trabajo, participa en los eventos y hazte socio/a.</p><button onclick="colabora('ciudadania')">Quiero <i>participar</i></button></div>
+  </div>
+  <div class="formcard" style="margin-top:40px" id="formColab">
+    <h3 style="font-size:22px;margin-bottom:6px">Cuéntanos cómo quieres colaborar</h3>
+    <p style="color:var(--muted);margin:0 0 18px">Te responderemos en pocos días.</p>
+    <form name="colaboraciones" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="return enviar(event)">
+      <input type="hidden" name="form-name" value="colaboraciones">
+      <p hidden><label>No rellenar: <input name="bot-field"></label></p>
+      <div class="formgrid">
+        <label>Tipo de colaborador<select name="tipo" id="colabTipo" required>
+          <option value="educacion">Centro educativo</option><option value="jovenes">Jóvenes / grupo juvenil</option><option value="parroquia">Parroquia o comunidad</option><option value="empresa">Empresa</option><option value="administracion">Administración pública</option><option value="ciudadania" selected>Ciudadano/a</option></select></label>
+        <label>¿Qué te gustaría hacer?<select name="propuesta">
+          <option value="charla">Charla o taller</option><option value="recogida">Recogida de alimentos o ropa</option><option value="voluntariado">Voluntariado</option><option value="patrocinio">Patrocinio o donación</option><option value="espacio">Ceder un espacio</option><option value="empleo">Ofrecer empleo o prácticas</option><option value="evento">Organizar un evento</option><option value="otro" selected>Otra idea</option></select></label>
+        <label>Entidad (si aplica)<input name="entidad" placeholder="Colegio, empresa, parroquia…"></label>
+        <label>Persona de contacto<input name="contacto" required></label>
+        <label>Email<input type="email" name="email" required></label>
+        <label>Teléfono<input type="tel" name="telefono"></label>
+        <label class="full">Mensaje<textarea name="mensaje" placeholder="Cuéntanos tu idea, fechas posibles…"></textarea></label>
+        <label class="consent full"><input type="checkbox" name="consentimiento" value="si" required> Acepto que Ayuda al Inmigrante trate mis datos para responder a mi solicitud, según la política de privacidad.</label>
+        <div class="full"><button class="btn pri" type="submit">Enviar propuesta</button></div>
+      </div>
+      <div class="msg"></div>
+    </form>
+  </div>
+</div></section>
+
+<!-- Únete al equipo -->
+<section class="alt" id="unete"><div class="wrap two">
+  <div class="side">
+    <div class="eyebrow">Únete al equipo</div>
+    <h2 style="font-size:clamp(28px,3.4vw,40px);color:var(--pri-d)">Tu tiempo cambia vidas</h2>
+    <p>No hace falta experiencia: te formamos y te acompañamos. Buscamos personas para:</p>
+    <ul><li>Dar clases de español</li><li>Acoger y escuchar a quien llega</li><li>Traducir (árabe, francés, inglés, wolof…)</li><li>Orientación jurídica y laboral (si eres profesional)</li><li>Ropero, almacén y reparto</li><li>Organizar eventos y difusión</li></ul>
+  </div>
+  <div class="formcard">
+    <form name="voluntariado" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="return enviar(event)">
+      <input type="hidden" name="form-name" value="voluntariado">
+      <p hidden><label>No rellenar: <input name="bot-field"></label></p>
+      <div class="formgrid">
+        <label>Nombre y apellidos<input name="nombre" required></label>
+        <label>Email<input type="email" name="email" required></label>
+        <label>Teléfono<input type="tel" name="telefono" required></label>
+        <label>Idiomas que hablas<input name="idiomas" placeholder="Español, francés…"></label>
+        <label class="full">¿En qué te gustaría ayudar?<div class="checks">
+          <label><input type="checkbox" name="areas" value="Clases de español"> Clases de español</label>
+          <label><input type="checkbox" name="areas" value="Acogida"> Acogida</label>
+          <label><input type="checkbox" name="areas" value="Traducción"> Traducción</label>
+          <label><input type="checkbox" name="areas" value="Asesoría jurídica"> Asesoría jurídica</label>
+          <label><input type="checkbox" name="areas" value="Empleo"> Empleo</label>
+          <label><input type="checkbox" name="areas" value="Ropero y reparto"> Ropero y reparto</label>
+          <label><input type="checkbox" name="areas" value="Eventos y difusión"> Eventos y difusión</label>
+          <label><input type="checkbox" name="areas" value="Infancia"> Infancia</label></div></label>
+        <label class="full">Disponibilidad<div class="checks">
+          <label><input type="checkbox" name="disponibilidad" value="Mañanas"> Mañanas</label>
+          <label><input type="checkbox" name="disponibilidad" value="Tardes"> Tardes</label>
+          <label><input type="checkbox" name="disponibilidad" value="Fines de semana"> Fines de semana</label>
+          <label><input type="checkbox" name="disponibilidad" value="Puntual (eventos)"> Puntual (eventos)</label></div></label>
+        <label class="full">Cuéntanos algo de ti<textarea name="mensaje"></textarea></label>
+        <label class="consent full"><input type="checkbox" name="consentimiento" value="si" required> Acepto que Ayuda al Inmigrante trate mis datos para gestionar mi voluntariado, según la política de privacidad.</label>
+        <div class="full"><button class="btn pri" type="submit">Quiero ser voluntario/a</button></div>
+      </div>
+      <div class="msg"></div>
+    </form>
+  </div>
+</div></section>
+
+<!-- Hazte socio -->
+<section id="socio"><div class="wrap two">
+  <div class="side">
+    <div class="eyebrow">Hazte socio/a</div>
+    <h2 style="font-size:clamp(28px,3.4vw,40px);color:var(--pri-d)">Una cuota pequeña, un apoyo constante</h2>
+    <p>Las cuotas periódicas nos permiten planificar: pagar el alquiler del local, los materiales de las clases y las ayudas de emergencia.</p>
+    <ul><li><b>10 €/mes</b> cubren el material de clase de español de una persona</li><li><b>20 €/mes</b> ayudan a mantener el ropero y el banco de alimentos</li><li><b>30 €/mes</b> sostienen el servicio de asesoría jurídica</li></ul>
+    <p class="note" data-show="desgrava">Tus cuotas pueden desgravar en la declaración de la renta: te enviaremos el certificado anual.</p>
+  </div>
+  <div class="formcard">
+    <form name="socios" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="return enviar(event)">
+      <input type="hidden" name="form-name" value="socios">
+      <p hidden><label>No rellenar: <input name="bot-field"></label></p>
+      <div class="formgrid">
+        <label class="full">Cuota<div class="amounts">
+          <label><input type="radio" name="cuota" value="10"><span>10 €</span></label>
+          <label><input type="radio" name="cuota" value="20" checked><span>20 €</span></label>
+          <label><input type="radio" name="cuota" value="30"><span>30 €</span></label>
+          <label><input type="radio" name="cuota" value="50"><span>50 €</span></label>
+          <label><input type="radio" name="cuota" value="otra"><span>Otra</span></label></div></label>
+        <label>Otra cantidad (€)<input type="number" min="1" name="cuotaOtra"></label>
+        <label>Periodicidad<select name="periodicidad"><option value="mensual">Mensual</option><option value="trimestral">Trimestral</option><option value="anual">Anual</option></select></label>
+        <label>Nombre y apellidos<input name="nombre" required></label>
+        <label>Email<input type="email" name="email" required></label>
+        <label>Teléfono<input type="tel" name="telefono" required></label>
+        <label>Cómo prefieres pagar<select name="pago"><option value="domiciliacion">Domiciliación bancaria</option><option value="transferencia">Transferencia periódica</option><option value="bizum">Bizum</option></select></label>
+        <label class="consent full"><input type="checkbox" name="certificado" value="si"> Quiero recibir el certificado de donaciones para la declaración de la renta.</label>
+        <label class="consent full"><input type="checkbox" name="consentimiento" value="si" required> Acepto que Ayuda al Inmigrante trate mis datos para gestionar mi alta como socio/a, según la política de privacidad.</label>
+        <p class="full note" style="margin:0">No te pedimos datos bancarios aquí: te llamaremos para completar el alta de forma segura.</p>
+        <div class="full"><button class="btn pri" type="submit">Hazme socio/a</button></div>
+      </div>
+      <div class="msg"></div>
+    </form>
+  </div>
+</div></section>
+
+<!-- Dona -->
+<section class="alt" id="dona"><div class="wrap">
+  <div class="sec-head"><div class="eyebrow">Dona</div><h2>Cada aportación cuenta</h2><p>Puedes donar dinero o lo que más necesitamos ahora mismo.</p></div>
+  <div class="donate">
+    <div class="dcard feat"><h3>Bizum</h3><p>Dona en un minuto desde tu móvil con el código de la ONG:</p><div class="big" data-cfg="bizum"></div><button class="copy" onclick="copiar('bizum')">Copiar código</button></div>
+    <div class="dcard"><h3>Transferencia</h3><p>Titular: <b data-cfg="titular"></b></p><div class="big" style="font-size:20px" data-cfg="iban"></div><button class="copy" onclick="copiar('iban')">Copiar IBAN</button><p class="note" style="margin-top:12px">Indica tu nombre en el concepto si quieres certificado.</p></div>
+    <div class="dcard"><h3>Donaciones en especie</h3><p>Ahora mismo necesitamos:</p><div class="needs" id="needs"></div><p class="note">Tráelas a nuestra sede en horario de atención (<span data-cfg="horario"></span>).</p></div>
+  </div>
+  <p class="note" data-show="desgrava">Las donaciones a Ayuda al Inmigrante pueden desgravar en el IRPF o en el Impuesto de Sociedades. Escríbenos para solicitar tu certificado.</p>
+</div></section>
+
+<!-- Dónde estamos / contacto -->
+<section id="donde"><div class="wrap">
+  <div class="sec-head" id="contacto"><div class="eyebrow">Dónde estamos</div><h2>Ven a conocernos</h2></div>
+  <div class="contact">
+    <div class="card"><div class="ico">📍</div><h3>Sede</h3><p data-cfg="direccion"></p></div>
+    <div class="card"><div class="ico">🕘</div><h3>Horario de atención</h3><p data-cfg="horario"></p></div>
+    <div class="card"><div class="ico">✉️</div><h3>Contacto</h3><p><span data-cfg="telefono"></span><br><span data-cfg="email"></span></p></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div><h4>Ayuda al Inmigrante</h4><p>Asociación sin ánimo de lucro dedicada a la acogida y el acompañamiento de personas migrantes.</p><p data-cfg="registro"></p></div>
+  <div><h4>Colabora</h4><p><a href="#dona">Dona</a><br><a href="#socio">Hazte socio/a</a><br><a href="#unete">Voluntariado</a><br><a href="#colabora">Empresas y entidades</a></p></div>
+  <div><h4>Contacto</h4><p><span data-cfg="telefono"></span><br><span data-cfg="email"></span><br><span data-cfg="redes"></span></p></div>
+  <div class="legal">Protección de datos: los datos que nos facilites se tratarán únicamente para gestionar tu solicitud y no se cederán a terceros. Puedes ejercer tus derechos de acceso, rectificación y supresión escribiendo a <span data-cfg="email"></span>. · © <span id="yr"></span> Ayuda al Inmigrante</div>
+</div></footer>
+
+<script>
+/* ==========================================================
+   CONFIGURACIÓN: cambia aquí los datos de la ONG.
+   Lo que se deje vacío se muestra como «pendiente».
+   ========================================================== */
+const CONFIG = {
+  telefono: "600555000",          // ej.: "600 000 000"
+  email: "info@ayudainmigrante.org",             // ej.: "info@ayudainmigrante.org"
+  bizum: "34567",             // código Bizum de ONG (5 cifras, lo da el banco)
+  titular: "Asociación Ayuda al Inmigrante",
+  iban: "ES00 0000 0000 0000 0000 0000",              // ej.: "ES00 0000 0000 0000 0000 0000"
+  direccion: "calle, número, ciudad",         // calle, número, ciudad
+  horario: "Lunes a viernes, de 10:00 a 14:00",
+  redes: "Instagram: @ayudainmigrante",             // ej.: "Instagram: @ayudainmigrante"
+  registro: "Inscrita en el Registro de Asociaciones con el nº …",          // ej.: "Inscrita en el Registro de Asociaciones con el nº …"
+  desgrava: false,       // true solo si la asociación está acogida a la Ley 49/2002
+  whatsapp: "34600000000",          // número con prefijo, sin espacios ni +, ej.: "34600000000"
+  formularios: false,    // false = presentación: en lugar de formularios, botones de email / teléfono / WhatsApp
+  stats: [["120","personas acompañadas este año"],["35","personas voluntarias"],["4.000 kg","de alimentos repartidos"],["60","trámites de regularización orientados"]],
+  campanaAnio: "2026",
+  campanaFecha: "18 de diciembre · Día Internacional del Migrante",
+  campanaTitulo: "Campaña de invierno: que nadie pase frío",
+  campanaTexto: "Este invierno queremos garantizar abrigo, mantas y una comida caliente a todas las personas que acompañamos, y reforzar las clases de español y la asesoría jurídica.",
+  campanaMeta: 5000,
+  campanaRecaudado: 1850,
+  campanaLogros: ["150 abrigos y mantas","Un mes de comidas calientes para 40 personas","Asesoría jurídica para 30 familias"],
+  necesidades: ["Abrigos de adulto","Mantas","Leche y legumbres","Productos de higiene","Calzado de invierno","Material escolar"]
+};
+
+/* ---------- Pintar la configuración ---------- */
+const fmtEur = n => Number(n).toLocaleString("es-ES",{style:"currency",currency:"EUR",maximumFractionDigits:0});
+document.querySelectorAll("[data-cfg]").forEach(el=>{
+  const k = el.dataset.cfg; let v = CONFIG[k];
+  if(k==="campanaMeta"||k==="campanaRecaudado") v = fmtEur(v);
+  if(v===undefined||v===""){ el.textContent = k==="bizum"?"pendiente":"(pendiente de completar)"; el.classList.add("pending"); }
+  else el.textContent = v;
+});
+document.querySelectorAll("[data-show=desgrava]").forEach(el=>{ if(!CONFIG.desgrava) el.remove(); });
+document.getElementById("stats").innerHTML = CONFIG.stats.map(([n,t])=>`<div class="stat"><b>${n}</b><span>${t}</span></div>`).join("");
+document.getElementById("campBar").style.width = Math.min(100, Math.round(CONFIG.campanaRecaudado/CONFIG.campanaMeta*100))+"%";
+document.getElementById("campList").innerHTML = CONFIG.campanaLogros.map(x=>`<li>${x}</li>`).join("");
+document.getElementById("needs").innerHTML = CONFIG.necesidades.map(x=>`<span>${x}</span>`).join("");
+document.getElementById("yr").textContent = new Date().getFullYear();
+
+/* ---------- Modo presentación: sustituir formularios por contacto directo ---------- */
+const PLANTILLAS = {
+  colaboraciones:{asunto:"Quiero colaborar con Ayuda al Inmigrante", texto:"Hola, me gustaría colaborar con vosotros.\n\nEntidad (si aplica):\nPersona de contacto:\nTeléfono:\nTipo (centro educativo, parroquia, empresa, administración, particular):\nMi propuesta:\n", titulo:"Cuéntanos tu propuesta", intro:"Escríbenos o llámanos y te responderemos en pocos días."},
+  voluntariado:{asunto:"Quiero ser voluntario/a", texto:"Hola, me gustaría unirme al voluntariado.\n\nNombre y apellidos:\nTeléfono:\nIdiomas que hablo:\nEn qué me gustaría ayudar (clases de español, acogida, traducción, jurídico, empleo, ropero, eventos, infancia):\nDisponibilidad (mañanas, tardes, fines de semana, puntual):\n", titulo:"Escríbenos y te llamamos", intro:"Te contaremos cómo funciona el voluntariado y te invitaremos a una primera reunión."},
+  socios:{asunto:"Quiero hacerme socio/a", texto:"Hola, me gustaría hacerme socio/a.\n\nNombre y apellidos:\nTeléfono:\nCuota (10, 20, 30 € u otra):\nPeriodicidad (mensual, trimestral, anual):\nForma de pago preferida (domiciliación, transferencia, Bizum):\n¿Quieres certificado para la renta? (sí/no):\n", titulo:"Hazte socio/a en un minuto", intro:"Mándanos este mensaje y te llamaremos para completar el alta de forma segura. No nos envíes datos bancarios por email."}
+};
+function bloqueContacto(nombre){
+  const p = PLANTILLAS[nombre]; const em = CONFIG.email, tel = CONFIG.telefono, wa = CONFIG.whatsapp;
+  const mail = em? `mailto:${em}?subject=${encodeURIComponent(p.asunto)}&body=${encodeURIComponent(p.texto)}` : "";
+  const wap = wa? `https://wa.me/${wa}?text=${encodeURIComponent(p.texto)}` : "";
+  const telh = tel? "tel:"+tel.replace(/\s/g,"") : "";
+  return `<div class="contact-block">
+    <h3 style="font-size:21px;margin-bottom:6px">${p.titulo}</h3><p style="color:var(--muted);margin:0 0 18px">${p.intro}</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      ${mail?`<a class="btn pri" href="${mail}">✉️ Enviar email</a>`:""}
+      ${wap?`<a class="btn yel" href="${wap}" target="_blank" rel="noopener">💬 WhatsApp</a>`:""}
+      ${telh?`<a class="btn out" href="${telh}">📞 Llamar</a>`:""}
+    </div>
+    <p style="margin:16px 0 0;font-size:15px">${em?`Email: <b>${em}</b>`:`<span class="pending">Email pendiente de completar</span>`}${tel?` · Teléfono: <b>${tel}</b>`:""}</p>
+    <details style="margin-top:14px;font-size:14.5px;color:var(--muted)"><summary style="cursor:pointer;font-weight:600;color:var(--pri)">¿Qué datos debo enviar?</summary><pre style="white-space:pre-wrap;font-family:inherit;margin:8px 0 0">${p.texto.replace(/</g,"&lt;")}</pre></details>
+  </div>`;
+}
+if(!CONFIG.formularios){
+  document.querySelectorAll("form[data-netlify]").forEach(f=>{ const n=f.getAttribute("name"); if(PLANTILLAS[n]) f.outerHTML = bloqueContacto(n); });
+  document.querySelectorAll("#formColab > h3, #formColab > p").forEach(e=>e.remove());
+}
+
+/* ---------- Acciones ---------- */
+function colabora(tipo){ document.getElementById("colabTipo").value = tipo; document.getElementById("formColab").scrollIntoView({behavior:"smooth"}); }
+async function copiar(k){ try{ await navigator.clipboard.writeText(CONFIG[k]||""); toastBtn(event.target,"¡Copiado!"); }catch(e){ toastBtn(event.target,"Cópialo a mano"); } }
+function toastBtn(b,t){ const o=b.textContent; b.textContent=t; setTimeout(()=>b.textContent=o,1600); }
+
+/* ---------- Envío de formularios ----------
+   En Netlify, los formularios con data-netlify="true" se guardan
+   automáticamente (pestaña «Forms» del panel de Netlify, exportable a CSV).
+   En otro alojamiento o en la vista previa, se muestra un aviso. */
+const PREVIEW = location.protocol==="file:" || /claude|localhost|127\.0\.0\.1|usercontent/.test(location.hostname);
+if(PREVIEW && CONFIG.formularios) document.getElementById("demoBanner").style.display="block";
+async function enviar(e){
+  e.preventDefault();
+  const f = e.target, msg = f.querySelector(".msg");
+  const fd = new FormData(f);
+  // Unir valores múltiples (casillas) en un solo campo
+  const data = {};
+  for(const [k,v] of fd.entries()){ data[k] = data[k]? data[k]+", "+v : v; }
+  if(data.cuota==="otra") data.cuota = data.cuotaOtra||"";
+  delete data.cuotaOtra;
+  const body = new URLSearchParams(data).toString();
+  const ok = t=>{ msg.className="msg ok"; msg.textContent=t; f.querySelectorAll("input:not([type=hidden]):not([type=radio]),textarea").forEach(i=>{ if(i.type==="checkbox") i.checked=false; else i.value=""; }); };
+  if(PREVIEW){ msg.className="msg info"; msg.textContent="Esto es una demostración: en la web publicada este formulario llegará a la ONG. ¡Gracias!"; return false; }
+  try{
+    const r = await fetch("/", {method:"POST", headers:{"Content-Type":"application/x-www-form-urlencoded"}, body});
+    if(!r.ok) throw new Error(r.status);
+    ok("¡Gracias! Hemos recibido tus datos y te contactaremos muy pronto.");
+  }catch(err){
+    msg.className="msg info";
+    msg.textContent = "No se ha podido enviar el formulario. Escríbenos o llámanos: "+[CONFIG.email,CONFIG.telefono].filter(Boolean).join(" · ");
+  }
+  return false;
+}
+</script>
+</body>
+</html>
